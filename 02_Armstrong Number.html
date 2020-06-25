@@ -7,7 +7,7 @@
 </head>
 <body>
     
-    <div id="demo"></div>
+    <div id="demo" style="font-size:30pt; font-family:arial; color:#444444"></div>
 
     <script>
 
@@ -15,7 +15,24 @@
 
         var leng = num.length
 
-        document.write(leng)
+        var tot = 0
+        for (i = 0; i < leng; i++)
+        {
+            var loc = Number(num.substr(i,1))
+            var pot = loc ** leng
+            tot += pot
+        }
+
+        if (tot == num)
+        {
+            var answer = (num + " is a Armstrong Number.")
+        } 
+        else
+        {
+            var answer = (num + " isn't a Armstrong Number.")
+        }
+
+        document.getElementById("demo").innerHTML = answer
 
     </script>
 

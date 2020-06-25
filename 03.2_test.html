@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test 3.2</title>
+</head>
+<body>
+    
+    <button onclick="starts()">Start the clock</button>
+
+    <div id="demo" style="background-color:#333333; color:#ffffff; display:none; padding:5px; border-radius:3px;"></div>
+
+    <script>
+
+        function starts() 
+        {
+            clock()
+            setInterval(clock, 1000)
+        }
+
+        function clock() 
+        {
+            var dat = new Date();
+            document.getElementById("demo").style.display = 'inline-block'
+            document.getElementById("demo").innerHTML = dat.toLocaleDateString() + " - " + dat.toLocaleTimeString()
+        }
+
+    </script>
+
+</body>
+</html>

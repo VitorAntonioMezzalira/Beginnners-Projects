@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test 3.1</title>
+</head>
+<body>
+
+    <div  id="demo" >
+
+    </div>
+    <button onclick="timer()">Run!</button>
+    <button onclick="stop()">Stop</button>
+
+    <script>
+
+        function timer()
+        {
+            wait()
+            theTime = setTimeout(cronometrer, 2000)
+        
+        }
+
+        function cronometrer() 
+        {
+            document.getElementById("demo").innerHTML = "Hello World!"
+        }
+
+        function wait()
+        {
+            document.getElementById("demo").innerHTML = "Thinking..."
+        }
+
+        function stop() 
+        {
+            clearTimeout(theTime)
+            document.getElementById("demo").innerHTML = "Program stopped!"
+        }
+
+    </script>    
+
+</body>
+</html>
