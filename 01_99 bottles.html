@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>99 Bottles</title>
+</head>
+<body>
+    <div id="demo" style="font-family: arial"></div>
+    <script>
+
+        function bottle(a)
+        {
+            if (a > 1)
+            {
+                return a + " bottles"
+            }
+            else if (a == 1) 
+            {
+                return a + " bottle"
+            }
+            else
+            {
+                return "no more bottles"
+            }
+        }
+
+        function beer(i) 
+        {
+            let wall = ""
+            while (i > 0)
+            {
+                wall = wall + (bottle(i) + " of beer on the wall, " + bottle(i) + " of beer." + "<br>")
+                i--
+                wall = wall + (" Take one down and pass it around, " + bottle(i) + " of beer on the wall." + "<br><br>" )
+            }
+            return wall
+        }
+        var b = window.prompt("How many bottles of beer you have?")
+        document.getElementById("demo").innerHTML = beer(b)
+    </script>
+</body>
+</html>
