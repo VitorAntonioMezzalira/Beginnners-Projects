@@ -7,100 +7,93 @@
 </head>
 <body>
 <div id="interface">
-    <input type="text" placeholder="Your Question" id="clear">
-    <button onclick="show()">Send</button>
-    <button onclick="document.getElementById('clear').value = '';">Clear</button>
-    <button>Exit</button>
-    <div id="demoOne"></div>
+
+    <input type="text" placeholder="Your Question" id="magic">
+    <button onclick="wait()">Send</button>
+    <button onclick="document.getElementById('magic').value = '';">Clear</button>
+    <button onclick="">exit</button>
+    
     <div id="demo"></div>
 </div>
 
     <script>
 
-        function exit() {
-            document.getElementById("interface").style.display = "none"
-        }
-
+        // wait 3 sec to show the answer
         function wait()
         {
-            document.getElementById("demo").innerHTML = "Thinking..."
-        }
-
-        function show()
-        {
-            
-            document.getElementById("demoOne").innerHTML = num + " - " + choose()
-        }
-
-        function choose() 
-        {
-            switch (num) {
-                case 1:
-                    return "It is certain.";
-                    break
-                case 2:
-                    return "It is decidedly so.";
-                    break
-                case 3:
-                    return "Without a doubt.";
-                    break
-                case 4:
-                    return "Yes – definitely.";
-                    break
-                case 5:
-                    return "You may rely on it.";
-                    break
-                case 6:
-                    return "As I see it, yes.";
-                    break
-                case 7:
-                    return "Most likely.";
-                    break
-                case 8:
-                    return "Outlook good.";
-                    break
-                case 9:
-                    return "Yes.";
-                    break
-                case 10:
-                    return "Signs point to yes.";
-                    break
-                case 11:
-                    return "Reply hazy, try again.";
-                    break
-                case 12:
-                    return "Ask again later.";
-                    break
-                case 13:
-                    return "Better not tell you now.";
-                    break
-                case 14:
-                    return "Cannot predict now.";
-                    break
-                case 15:
-                    return "Concentrate and ask again.";
-                    break
-                case 16:
-                    return "Don't count on it.";
-                    break
-                case 17:
-                    return "My reply is no.";
-                    break
-                case 18:
-                    return "My sources say no.";
-                    break
-                case 19:
-                    return "Outlook not so good.";
-                    break
-                case 20:
-                    return "Very doubtful.";
-                    break
+            // test the value of the input
+            if (document.getElementById("magic").value == "")
+            {
+                document.getElementById("demo").innerHTML = "Question not valid"
+            } else {
+                document.getElementById("demo").innerHTML = "Thinking..."
+                theTime = setTimeout(show, 2000)  
             }
         }
 
-        var num = Number(window.prompt("Say me"))
+        // choose random answer
+        function show() 
+        {
 
-    </script>    
+        document.getElementById("demo").innerHTML = choose(random())
+        }
 
+        function random() 
+        {
+            return Math.floor(Math.random() * 20) + 1
+        }
+
+        function choose(a)
+        {
+            switch (a) 
+            {
+                case 1:
+                    return "It is certain.";
+                case 2:
+                    return "It is decidedly so.";
+                case 3:
+                    return "Without a doubt.";
+                case 4:
+                    return "Yes – definitely.";
+                case 5:
+                    return "You may rely on it.";
+                case 6:
+                    return "As I see it, yes.";
+                case 7:
+                    return "Most likely.";
+                case 8:
+                    return "Outlook good.";
+                case 9:
+                    return "Yes.";
+                case 10:
+                    return "Signs point to yes.";
+                case 11:
+                    return "Reply hazy, try again.";
+                case 12:
+                    return "Ask again later.";
+                case 13:
+                    return "Better not tell you now.";
+                case 14:
+                    return "Cannot predict now.";
+                case 15:
+                    return "Concentrate and ask again.";
+                case 16:
+                    return "Don't count on it.";
+                case 17:
+                    return "My reply is no.";
+                case 18:
+                    return "My sources say no.";
+                case 19:
+                    return "Outlook not so good.";
+                case 20:
+                    return "Very doubtful.";
+
+            }
+        }  
+
+    </script>
+
+
+    
 </body>
 </html>
