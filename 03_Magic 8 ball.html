@@ -11,7 +11,7 @@
     <input type="text" placeholder="Your Question" id="magic">
     <button onclick="wait()">Send</button>
     <button onclick="document.getElementById('magic').value = '';">Clear</button>
-    <button onclick="">exit</button>
+    <button onclick="exit()">exit</button>
     
     <div id="demo"></div>
 </div>
@@ -24,17 +24,29 @@
             // test the value of the input
             if (document.getElementById("magic").value == "")
             {
-                document.getElementById("demo").innerHTML = "Question not valid"
+                document.getElementById("demo").innerHTML = "Thinking..."
+                theTime = setTimeout(error, 2000)
             } else {
                 document.getElementById("demo").innerHTML = "Thinking..."
                 theTime = setTimeout(show, 2000)  
             }
         }
 
+        // goodbye message
+        function exit()
+        {
+            document.write("Goodbye...")
+        }
+
         // choose random answer
+
+        function error() 
+        {
+            document.getElementById("demo").innerHTML = "Question not valid"
+        }
+
         function show() 
         {
-
         document.getElementById("demo").innerHTML = choose(random())
         }
 
@@ -87,13 +99,10 @@
                     return "Outlook not so good.";
                 case 20:
                     return "Very doubtful.";
-
             }
         }  
 
     </script>
 
-
-    
 </body>
 </html>

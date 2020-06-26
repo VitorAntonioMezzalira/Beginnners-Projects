@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pythagorean Triple</title>
+    <style>
+        .side {
+            width: 50px;
+        }
+    </style>
+</head>
+<body>
+    
+    <input class="side" type="number" id="x">
+    <input class="side" type="number" id="y">
+    <!--<input class="side" type="number" id="z"> -->
+
+    <button onclick="run()">send</button>
+
+    <div id="demo"></div>
+
+    <script>
+
+        var x, y, z
+        var a, b, c
+
+        function run() 
+        {
+            x = document.getElementById("x").value 
+            y = document.getElementById("y").value
+            z = document.getElementById("z").value
+
+            if (x > 0 && y > 0 && z > 0) 
+            {
+
+                if (x > y)
+                {
+                    b = x
+                    a = y
+                } else {
+                    b = y
+                    a = x
+                }
+
+/*                 if (c**2 == a**2 + b**2) {
+                    document.getElementById("demo").innerHTML = "is a triple pythagorean"
+                } else {
+                    document.getElementById("demo").innerHTML = "isn't a triple pythagorean"
+                } */
+                document.getElementById("demo").innerHTML = (a + "<br>" + b)
+            } else {
+                document.getElementById("demo").innerHTML = "not valid"
+            }
+        }
+
+    </script>
+
+</body>
+</html>
