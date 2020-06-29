@@ -20,21 +20,35 @@
             margin: 10px;
             background-color: #eeeeee;
             width: 150px;
-            height: 65px;
+            height: 75px;
+        }
+
+        .options {
+            text-align: center;
+            margin: 10px;
+            padding: 10px;
+            background-color: #eeeeee;
+            width: 85px;
+            height: 95px;
+        }
+
+        .option {
+            display: block;
+            position: relative;
+            margin: 5px auto;
+            width: 75px;
+            height: 25px;
         }
     </style>
 </head>
 <body>
-    <div>
-        <label for="choice">Escolha: </label><select id="choice">
-            <option value="rock">Pedra</option>
-            <option value="papper">Papel</option>
-            <option value="scissor">Tesoura</option>
-        </select>
-        <button onclick="run()">Jogar</button>
-    </div>
 
     <div style="display:flex;">
+        <div class="options">
+            <button class="option" onclick="getRock()">Rock</button>
+            <button class="option" onclick="getPapper()">Papper</button>
+            <button class="option" onclick="getScissor()">Scissor</button>
+        </div>
         <div class="game">
             <h1>User</h1>
             <p id="user"></p>
@@ -52,8 +66,19 @@
 
         var choice
 
-        function get() {
-            return choice = document.getElementById("choice").value
+        function getRock() {
+            choice = "rock"
+            run()
+        }
+        
+        function getPapper() {
+            choice = "papper"
+            run()
+        }
+        
+        function getScissor() {
+            choice = "scissor"
+            run()
         }
 
         function chosseRandom() {
@@ -67,7 +92,6 @@
                 case 3:
                     return "scissor";
             }
-            
         }
 
         var userChoice, userPoints, computerChoice, computerPoints
@@ -77,20 +101,20 @@
 
         function humanWin() {
             userPoints += 1
-            document.getElementById("result").innerHTML = "Human Wins!"
+            document.getElementById("result").innerHTML = "Human Wins!<br><--"
         }
 
         function computerWin() {
             computerPoints += 1
-            document.getElementById("result").innerHTML = "Computer Wins!"
+            document.getElementById("result").innerHTML = "Computer Wins!<br>-->"
         }
 
         function noWinners() {
-            document.getElementById("result").innerHTML = "No Winners!"
+            document.getElementById("result").innerHTML = "No Winners!<br>==="
         }
 
         function run() {
-            userChoice = get()
+            userChoice = choice
             computerChoice = chosseRandom()
 
             if ((userChoice == "rock") && (computerChoice == "rock")) {
