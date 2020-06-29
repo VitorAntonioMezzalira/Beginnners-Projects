@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: courier;
+        }
+
+        h1, p {
+            padding: 0px;
+            margin: 0px;
+        }
+
+        .game {
+            text-align: center;
+            padding: 20px;
+            margin: 10px;
+            background-color: #eeeeee;
+            width: 150px;
+            height: 65px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <label for="choice">Escolha: </label><select id="choice">
+            <option value="rock">Pedra</option>
+            <option value="papper">Papel</option>
+            <option value="scissor">Tesoura</option>
+        </select>
+        <button onclick="run()">Jogar</button>
+    </div>
+
+    <div style="display:flex;">
+        <div class="game">
+            <h1>User</h1>
+            <p id="user"></p>
+            <p id="puser"></p>
+        </div>
+        <div class="game" id="result"></div>
+        <div class="game">
+            <h1>Computer</h1>
+            <p id="pc"></p>
+            <p id="ppc"></p>
+        </div>
+    </div>
+
+    <script>
+
+        var choice
+
+        function get() {
+            return choice = document.getElementById("choice").value
+        }
+
+        function chosseRandom() {
+            var option = Math.floor(Math.random() * 3) + 1
+            switch (option) 
+            {
+                case 1:
+                    return "rock";
+                case 2:
+                    return "papper";
+                case 3:
+                    return "scissor";
+            }
+            
+        }
+
+        var userChoice, userPoints, computerChoice, computerPoints
+
+        computerPoints = 0
+        userPoints = 0
+
+        function humanWin() {
+            userPoints += 1
+            document.getElementById("result").innerHTML = "Human Wins!"
+        }
+
+        function computerWin() {
+            computerPoints += 1
+            document.getElementById("result").innerHTML = "Computer Wins!"
+        }
+
+        function noWinners() {
+            document.getElementById("result").innerHTML = "No Winners!"
+        }
+
+        function run() {
+            userChoice = get()
+            computerChoice = chosseRandom()
+
+            if ((userChoice == "rock") && (computerChoice == "rock")) {
+                noWinners()
+            } else if ((userChoice == "rock") && (computerChoice == "papper")) {
+                computerWin()
+            } else if ((userChoice == "rock") && (computerChoice == "scissor")) {
+                humanWin()
+            } else if ((userChoice == "papper") && (computerChoice == "rock")) {
+                humanWin()
+            } else if ((userChoice == "papper") && (computerChoice == "papper")) {
+                noWinners()
+            } else if ((userChoice == "papper") && (computerChoice == "scissor")) {
+                computerWin()
+            } else if ((userChoice == "scissor") && (computerChoice == "rock")) {
+                computerWin()
+            } else if ((userChoice == "scissor") && (computerChoice == "papper")) {
+                humanWin()
+            } else if ((userChoice == "scissor") && (computerChoice == "scissor")) {
+                noWinners()
+            }
+
+            document.getElementById("user").innerHTML = userChoice
+            document.getElementById("puser").innerHTML = userPoints
+            document.getElementById("pc").innerHTML = computerChoice
+            document.getElementById("ppc").innerHTML = computerPoints
+        }
+
+    </script>
+
+</body>
+</html>

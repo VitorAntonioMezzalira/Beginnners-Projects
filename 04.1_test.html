@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pythagorean Triple</title>
+    <style>
+        .side {
+            width: 50px;
+        }
+    </style>
+</head>
+<body>
+    
+    <input class="side" type="number" id="wid" max="500" placeholder="largura" value="200">
+    <input class="side" type="number" id="hei" max="500" placeholder="altura" value="200">
+    <table>
+        <tr><td><input class="side" type="number" id="border-top-left"></td><td><input class="side" type="number" id="border-top-right"></td></tr>
+        <tr><td><input class="side" type="number" id="border-bottom-left"></td><td><input class="side" type="number" id="border-bottom-right"></td></tr>
+    </table>
+    
+    <input class="side" type="color" id="cor">
+    <button onclick="loop()">Send</button>
+    <div id="test"></div>
+    <div id="demo" style="position:relative;background-color:red;margin:auto;top:150px;"></div>
+      
+    <script>
+
+        setInterval(set, 200)
+
+        function set() 
+        {
+            var borTopLeft = document.getElementById("border-top-left").value
+            var borTopRight = document.getElementById("border-top-right").value
+            var borBottomLeft = document.getElementById("border-bottom-left").value
+            var borBottomRight = document.getElementById("border-bottom-right").value
+            var cor = document.getElementById("cor").value
+            var wid = document.getElementById("wid").value
+            var hei = document.getElementById("hei").value
+
+            if(borTopLeft == "")
+            {
+                borTopLeft = 0
+            }
+            if(borTopRight == "")
+            {
+                borTopRight = 0
+            } 
+            if(borBottomLeft == "")
+            {
+                borBottomLeft = 0
+            }
+            if(borBottomRight == "")
+            {
+                borBottomRight = 0
+            }
+
+            if (wid > 400) 
+            {
+                wid = 400
+            }
+            if (hei > 400)
+            {
+                hei = 400
+            }
+            document.getElementById("demo").style.backgroundColor = cor
+            document.getElementById("demo").style.width = wid + "px"
+            document.getElementById("demo").style.height = hei + "px"
+            document.getElementById("demo").style.borderRadius = borTopLeft + "px " + borTopRight + "px " + borBottomRight + "px " + borBottomLeft + "px"
+        }
+
+    </script>
+
+    
+
+</body>
+</html>

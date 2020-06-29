@@ -5,52 +5,67 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pythagorean Triple</title>
     <style>
-        .side {
+        .curto {
             width: 50px;
         }
+
     </style>
 </head>
 <body>
-    
-    <input class="side" type="number" id="x">
-    <input class="side" type="number" id="y">
-    <!--<input class="side" type="number" id="z"> -->
-
-    <button onclick="run()">send</button>
-
+<div id="test">
+    <h1>Pythagorean Triple Tester</h1>
+    Set the values
+    <input class="curto" type="number" id="one">
+    <input class="curto" type="number" id="two">
+    <input class="curto" type="number" id="three">
+    <button onclick="test()">Test</button>
+    <button onclick="limpa()">Clear</button>
+</div>
     <div id="demo"></div>
 
     <script>
 
-        var x, y, z
-        var a, b, c
+        var a, b, c, x, y, z, testando
 
-        function run() 
-        {
-            x = document.getElementById("x").value 
-            y = document.getElementById("y").value
-            z = document.getElementById("z").value
+        function limpa() {
+            document.getElementById('one').value = '';
+            document.getElementById("two").value = '';
+            document.getElementById("three").value = '';
+        }
 
-            if (x > 0 && y > 0 && z > 0) 
-            {
+        function test() {
 
-                if (x > y)
-                {
-                    b = x
-                    a = y
-                } else {
-                    b = y
+            x = Number(document.getElementById("one").value)
+            y = Number(document.getElementById("two").value)
+            z = Number(document.getElementById("three").value)
+
+            if ((x == "") || (y == "") || (z == "")) {
+                document.getElementById("demo").innerHTML = "Invalid value(s)"
+            } else {
+                if ((x >= y) && (x >= z)) {
                     a = x
+                    b = y
+                    c = z
+                } else if ((y >= x) && (y >= z)){
+                    a = y
+                    b = x
+                    c = z
+                } else {
+                    a = z
+                    b = x
+                    c = y
                 }
 
-/*                 if (c**2 == a**2 + b**2) {
-                    document.getElementById("demo").innerHTML = "is a triple pythagorean"
+                var response
+
+                if ((a**2 == b**2 + c**2)) {
+                    response = "is a pythagorean triple"
                 } else {
-                    document.getElementById("demo").innerHTML = "isn't a triple pythagorean"
-                } */
-                document.getElementById("demo").innerHTML = (a + "<br>" + b)
-            } else {
-                document.getElementById("demo").innerHTML = "not valid"
+                    response = "isn't a pythagorean triple"
+                }
+
+                document.getElementById("demo").innerHTML = response
+
             }
         }
 
