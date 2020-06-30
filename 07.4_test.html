@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        canvas {
+            border: 1px solid black;
+        }
+        img {
+            display:none
+        }
+    </style>
+</head>
+<body>
+    
+    <button onclick="run()">butão</button>
+
+    <img id="scream" src="_others/pic_the_scream.jpg" alt="famoso quadro 'O Grito'">
+    
+    <canvas id="demo0" width="200" height="200"></canvas>
+    <canvas id="demo1" width="200" height="200"></canvas>
+    <canvas id="demo2" width="200" height="200"></canvas>
+    <canvas id="demo3" width="200" height="200"></canvas>
+    <canvas id="demo4" width="200" height="200"></canvas>
+    <canvas id="demo5" width="200" height="200"></canvas>
+    <canvas id="demo6" width="200" height="200"></canvas>
+    <canvas id="demo7" width="240" height="297"></canvas>
+
+    <script>
+
+    function run() {
+        setInterval(walk, 100)
+        drawLine()
+        drawCircle()
+        helloWorld1()
+        helloWorld2()
+        helloWorld3()
+        image()
+    }
+
+    function walk() {
+        hor -= 1
+        ver -= 1
+        let canvas = document.getElementById("demo1")
+        let ctx = canvas.getContext("2d")
+        ctx.fillStyle = "#FF0000";
+        ctx.fillRect(hor,ver,75,75);
+    }
+
+    function drawLine() {
+        let canvas = document.getElementById("demo2")
+        let ctx = canvas.getContext("2d")
+        ctx.moveTo(0,0)
+        ctx.lineTo(200,200)
+        ctx.stroke();
+    }
+
+    function drawCircle() {
+        let canvas = document.getElementById("demo3")
+        let ctx = canvas.getContext("2d")
+        ctx.beginPath()
+        ctx.arc(100,100,75,0,2*Math.PI)
+        ctx.stroke()
+    }
+
+    function helloWorld1() {
+        let canvas = document.getElementById("demo4")
+        let ctx = canvas.getContext("2d")
+        ctx.font = "32px arial"
+        ctx.fillText("Hello World",20,110)
+    }
+
+    function helloWorld2() {
+        let canvas = document.getElementById("demo5")
+        let ctx = canvas.getContext("2d")
+        ctx.font = "32px arial"
+        ctx.strokeText("Hello World",20,110)
+    }
+
+    function helloWorld3() {
+        let canvas = document.getElementById("demo6")
+        let ctx = canvas.getContext("2d")
+        ctx.font = "32px arial"
+        ctx.fillStyle = "red"
+        ctx.textAlign = "center" // defines center with position
+        ctx.fillText("Hello World", canvas.width/2, canvas.height/2)
+    }
+
+    function image() {
+        let canvas = document.getElementById("demo7")
+        let ctx = canvas.getContext("2d")
+        let img = document.getElementById("scream")
+        ctx.drawImage(img,10,10);
+    }
+
+    </script>
+
+
+</body>
+</html>

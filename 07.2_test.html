@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mad Libs Story</title>
+</head>
+<body>
+    
+    <div id="demo"></div>
+
+    <script>
+
+        var place = String(window.prompt("Diga um lugar"))
+        var art
+        var substantivo01 = String(window.prompt("Dê um substantivo"))
+        var verbo01 = String(window.prompt("Dê um verbo"))
+
+        function artigo(a) {
+            if ((a.slice(-1)) == "a") {
+                return art = "a"
+            } else {
+                return art = "o"
+            }
+        }
+        document.getElementById("demo").innerHTML = "Fui até " + artigo(place) + " " + place + " comprar " + substantivo01 + " para " + verbo01
+
+    </script>
+
+</body>
+</html>
