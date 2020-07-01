@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+
+    <div id="demo"></div>
+
+    <div class="container">
+        <h1>Container Test</h1>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugiat vitae amet rem laborum assumenda illum architecto dolore eius tenetur quam ab laudantium, eum adipisci tempore cumque ipsa ipsum nam laboriosam. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam eaque, molestias, inventore tenetur dolorum ratione eos molestiae consequuntur soluta voluptas non voluptates, a blanditiis commodi quam neque harum minus aspernatur.</p>
+    </div>
+
+    <div class="container">
+        <h1>Container Test</h1>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugiat vitae amet rem laborum assumenda illum architecto dolore eius tenetur quam ab laudantium, eum adipisci tempore cumque ipsa ipsum nam laboriosam. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam eaque, molestias, inventore tenetur dolorum ratione eos molestiae consequuntur soluta voluptas non voluptates, a blanditiis commodi quam neque harum minus aspernatur.</p>
+    </div>
+
+    <div class="container-fluid">
+        <h1>Container Test</h1>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugiat vitae amet rem laborum assumenda illum architecto dolore eius tenetur quam ab laudantium, eum adipisci tempore cumque ipsa ipsum nam laboriosam. Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero velit, vel, dicta odit laudantium officia tenetur nihil dignissimos inventore impedit quasi perferendis quam nostrum culpa eveniet. Rerum hic repellat velit!</p>
+    </div>
+
+    <script>
+
+        setInterval(setContainer, 10)
+        
+        var containerFluid = document.querySelector(".container-fluid")
+
+        function setContainer() {
+
+            var container = document.querySelectorAll(".container")
+            var i
+            for (i = 0; i < container.length; i++) {
+
+                var bodyWidth = document.body.clientWidth
+                container[i].style.margin = "auto" 
+
+                if (bodyWidth >= 1200) {
+                    container[i].style.width = "1140px"
+                } else if (bodyWidth >= 992) {
+                    container[i].style.width = "960px"
+                } else if (bodyWidth >= 768) {
+                    container[i].style.width = "720px"
+                } else if (bodyWidth >= 576) {
+                    container[i].style.width = "540px"
+                } else if (bodyWidth < 576) {
+                    container[i].style.width = "100%"
+                }
+            }
+        }
+
+        function setContainerFluid() {
+                containerFluid.style.width = "100%"
+        }
+        
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tag Name and Index</title>
+</head>
+<body>
+    
+    <p>This is the first paragraph</p>
+    <p>This is the second paragraph</p>
+    <p>And this is the last paragraph</p>
+
+    <div style="background-color: #999999; display: inline-block;">
+        <h1 style="margin: 5px; padding: 5px;">Demonstration</h1>
+        <p style="text-align: center; background-color: #eeeeee">Set 0, 1 or 2: <input type="number" max="2" min="0" id="index" style="width:30px"></p>
+        <p id="demo" style="text-align: center; background-color: #eeeeee"></p>
+    </div>
+
+    <script>
+
+        setInterval(reload, 100)
+
+        function reload() {
+            var index = document.getElementById("index").value
+            var paragraphs = document.getElementsByTagName("p") // works with class and querySelectorAll too
+            document.getElementById("demo").innerHTML = paragraphs[index].innerHTML
+        }
+    </script>
+
+</body>
+</html>
