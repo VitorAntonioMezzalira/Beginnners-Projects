@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mad Libs Story Maker</title>
+</head>
+<body>
+    
+    <div id="demo"></div>
+
+    <script>
+        /*
+        function testAnA(a) {
+            if (((a.slice(0,1)) == "a") || ((a.slice(0,1)) == "e") || ((a.slice(0,1)) == "i") || ((a.slice(0,1)) == "o") || ((a.slice(0,1)) == "u")) {
+                return "an "
+            } else {
+                return "a "
+            }
+        }
+        */
+
+        function testAnA(a) {
+            return ((( (a.slice(0,1)) == "a") || ((a.slice(0,1)) == "e") || ((a.slice(0,1)) == "i") || ((a.slice(0,1)) == "o") || ((a.slice(0,1)) == "u")) ? "an " : "a ")
+
+        }
+        document.getElementById("demo").innerHTML = testAnA("u")
+
+        place01 = window.prompt("A place")
+        noun01 = window.prompt("A noun")
+        friend = window.prompt("A friend of you")
+        noun02 = window.prompt("A noun")
+        place02 = window.prompt("A place")
+        partOfBody = window.prompt("Part of body")
+        place03 = window.prompt("A place")
+        verb = window.prompt("A verb")
+
+        document.getElementById("demo").innerHTML = "I went to the " + place01 + " to buy " + testAnA(noun01) + noun01 + " with my friend " + friend + ", but I tripped over " + testAnA(noun01) + noun02 + " on the " + place02 + " and hurt my " + partOfBody + " and ran to the " + place03 + " to " + verb
+    
+    </script>
+
+</body>
+</html>

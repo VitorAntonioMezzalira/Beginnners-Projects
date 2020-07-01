@@ -1,0 +1,16 @@
+@charset "utf-8";
+
+.container {
+    background-color: #eeeeee;
+    padding: 5px 15px 5px 15px;
+    color: #333333;
+}
+
+.container h1 {
+    border-bottom: 1px solid #777777;
+}
+
+.container p {
+    text-indent: 30px;
+    color: #222222;
+}

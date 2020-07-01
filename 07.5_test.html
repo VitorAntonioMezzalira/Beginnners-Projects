@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Query Selector Test</title>
+</head>
+<body>
+    <div style="width: 80vw; margin: auto">
+        <div style="display:block;">
+            <p><input type="text" class="width">vw</p>
+            <p><input type="text" class="height">vh</p>
+            <p>color: <input type="color" class="color"></p>
+        </div>
+        
+        <div class="demo" style="background-color: black; width: 100px; height: 100px"></div>
+    </div>
+    <script>
+
+        setInterval(test, 100)
+
+        function test() {
+
+            var width = document.querySelector("input.width")
+            var height = document.querySelector("input.height")
+            var demo = document.querySelector("div.demo")
+            var color = document.querySelector("input.color")
+
+            demo.style.width = width.value + "vw"
+            demo.style.height = height.value + "vh"
+            demo.style.backgroundColor = color.value
+        }
+
+    </script>
+
+</body>
+</html>

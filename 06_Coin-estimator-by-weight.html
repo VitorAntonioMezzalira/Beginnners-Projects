@@ -5,6 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Coin Estimator By Weight</title>
     <style>
+
+        div#interface {
+            width: 320px;
+            margin: auto;
+            position: relative;
+            box-shadow: 0px 0px 15px rgba(0,0,0,.3);
+            padding: 10px;
+            font-family: arial;
+            color: #222222
+        }
+
+        .line {
+            border-bottom: 1px solid rgba(0,0,0,.3)
+        }
+
         .input {
             width: 75px;
             left: 75px;
@@ -16,37 +31,64 @@
             margin: 5px;
         }
 
-        tr {
-            border: 1px solid #000000;
+        table {
+            background-color: #aaaaaa;
+        }
+
+        table td {
+            width: 75px;
+        }
+
+        table td.tT {
+            background-color: #cccccc;
+        }
+
+        table td.nC {
+            background-color: #eeeeee;
+        }
+
+        table td.right-align {
+            text-align: right;
+            background-color: #ffffff;
         }
     </style>
 </head>
 <body>
-    <div class="fieldset">
-        <label for="weight-type">Type of weight: </label>
-        <select id="weight-type">
-            <option value="pounds">pounds</option>
-            <option value="grams">grams</option>
-        </select>
-    </div>
-    <div class="fieldset">
-        <label for="number">Penny:</label><input class="input" type="number" id="penny">
-    </div>
-    <div class="fieldset">
-        <label for="nickel">Nickel: </label><input class="input" type="number" id="nickel">
-    </div>
-    <div class="fieldset">
-        <label for="dime">Dime: </label><input class="input" type="number" id="dime">
-    </div>
-    <div class="fieldset">
-        <label for="quarter">Quarter: </label><input class="input" type="number" id="quarter">
-    </div>
-    <div class="fieldset">
-        <button onclick="calculate()">Calculate</button>
-    </div>
 
-    <div id="demo"></div>
+    <div id="interface">
 
+        <header class="line">
+            <h1 style="margin: 0px; text-align: center;">Coin Estimator</h1>
+        </header>
+        <div class="line">
+            
+            <div class="fieldset">
+                <label for="weight-type">Type of weight: </label>
+                <select id="weight-type">
+                    <option value="pounds">pounds</option>
+                    <option value="grams">grams</option>
+                </select>
+            </div> 
+        
+            <div class="fieldset"><label for="number">Penny:</label><input class="input" type="number" id="penny"></div>
+            <div class="fieldset"><label for="nickel">Nickel: </label><input class="input" type="number" id="nickel"></div>
+            <div class="fieldset"><label for="dime">Dime: </label><input class="input" type="number" id="dime"></div>
+            <div class="fieldset"><label for="quarter">Quarter: </label><input class="input" type="number" id="quarter"></div>
+    
+        </div>
+
+        <table>
+            <caption>Results Table</caption>
+            <tr><td class="tT">Type</td>   <td class="tT">Quantity</td>  <td class="tT">Value($)  </td><td class="tT">Wrappers</td></tr>
+            <tr><td class="nC">Penny</td>   <td class="right-align" id="nPen"></td><td class="right-align" id="mPen"></td><td class="right-align" id="wraPen"></td></tr>
+            <tr><td class="nC">Nickel</td>  <td class="right-align" id="nNic"></td><td class="right-align" id="mNic"></td><td class="right-align" id="wraNic"></td></tr>
+            <tr><td class="nC">Dime</td>    <td class="right-align" id="nDim"></td><td class="right-align" id="mDim"></td><td class="right-align" id="wraDim"></td></tr>
+            <tr><td class="nC">Quarter</td> <td class="right-align" id="nQua"></td><td class="right-align" id="mQua"></td><td class="right-align" id="wraQua"></td></tr>
+            <tr><td class="nC">Total</td> <td class="right-align" id="totalNum"></td><td class="right-align" id="totalMon"></td><td class="right-align" id="totalWrap"></td></tr>
+            
+        </table>
+
+<<<<<<< HEAD
     <table>
 
         <tr class="sTR"><td >Type</td>    <td>Quantity</td><td>Value($)</td><td>Number of Wrapper</td></tr>
@@ -56,15 +98,25 @@
         <tr class="sTR"><td>Quarter</td> <td id="nQua"></td><td id="mQua"></td><td id="wQua"></td></tr>
 
     </table>
+=======
+    </div>
+>>>>>>> 85bafd2ca04ce30cadd30b2c575a506cb9b77343
 
     <script>
 
         var nPenny, nNickel, nDime, nQuarter // number of coin
         var wPenny, wNickel, wDime, wQuarter // coin total weight
         var mPenny, mNickel, mDime, mQuarter // value of all coin
+<<<<<<< HEAD
         var nPennyWrapper, nNickelWrapper, nDimeWrapper, nQuarterWrapper
+=======
+        var qWrapperPen, qWrapperNic, qWrapperDim, qWrapperQua // number of Wrappers
+        var totalCoin, totalMoney, totalWrap
+>>>>>>> 85bafd2ca04ce30cadd30b2c575a506cb9b77343
         var weightType
         var money
+
+        setInterval(calculate, 100)
 
         function calculate() {
 
@@ -81,25 +133,52 @@
                 pounds()
             }
 
+<<<<<<< HEAD
             calculeWrappers()
+=======
+            wrappers()
+>>>>>>> 85bafd2ca04ce30cadd30b2c575a506cb9b77343
 
             calculeMoney()
+
+            calculeTotal()
 
             document.getElementById("nPen").innerHTML = nPenny
             document.getElementById("nNic").innerHTML = nNickel
             document.getElementById("nDim").innerHTML = nDime
             document.getElementById("nQua").innerHTML = nQuarter
 
-            document.getElementById("mPen").innerHTML = mPenny
-            document.getElementById("mNic").innerHTML = mNickel
-            document.getElementById("mDim").innerHTML = mDime
-            document.getElementById("mQua").innerHTML = mQuarter
+            document.getElementById("mPen").innerHTML = (mPenny).toFixed(2)
+            document.getElementById("mNic").innerHTML = (mNickel).toFixed(2)
+            document.getElementById("mDim").innerHTML = (mDime).toFixed(2)
+            document.getElementById("mQua").innerHTML = (mQuarter).toFixed(2)
 
+            document.getElementById("wraPen").innerHTML = qWrapperPen
+            document.getElementById("wraNic").innerHTML = qWrapperNic
+            document.getElementById("wraDim").innerHTML = qWrapperDim
+            document.getElementById("wraQua").innerHTML = qWrapperQua
+
+            document.getElementById("totalNum").innerHTML = totalCoin
+            document.getElementById("totalMon").innerHTML = (totalMoney).toFixed(2)
+            document.getElementById("totalWrap").innerHTML = totalWrap
+
+<<<<<<< HEAD
             document.getElementById("wPen").innerHTML = nPennyWrapper
             document.getElementById("wNic").innerHTML = nNickelWrapper
             document.getElementById("wDim").innerHTML = nDimeWrapper
             document.getElementById("wQua").innerHTML = nQuarterWrapper
         }     
+=======
+            //document.getElementById("demo").innerHTML = nPenny + " Pennies<br>" + nNickel + " Nickels<br>" + nDime + " Dimes<br>" + nQuarter + " Quarters<br><br>R$" + money
+        }  
+
+        function wrappers() {
+            qWrapperPen = Math.ceil(nPenny / 50)
+            qWrapperNic = Math.ceil(nNickel / 40)
+            qWrapperDim = Math.ceil(nDime / 50)
+            qWrapperQua = Math.ceil(nQuarter / 40)     
+        }
+>>>>>>> 85bafd2ca04ce30cadd30b2c575a506cb9b77343
 
         function calculeWrappers() {
             nPennyWrapper = Math.ceil(nPenny / 50)
@@ -117,18 +196,24 @@
             money = mPenny + mNickel + mDime + mQuarter
         }
 
+        function calculeTotal() {
+            totalCoin = nPenny + nNickel + nDime + nQuarter
+            totalMoney = mPenny + mNickel + mDime + mQuarter 
+            totalWrap = qWrapperPen + qWrapperNic + qWrapperDim + qWrapperQua
+        }
+
         function grams() {
-            nPenny   = (wPenny / 2.5).toFixed(0)
-            nNickel  = (wNickel / 5).toFixed(0)
-            nDime    = (wDime / 2.268).toFixed(0)
-            nQuarter = (wQuarter / 5.670).toFixed(0)
+            nPenny   = Number((wPenny / 2.5).toFixed(0))
+            nNickel  = Number((wNickel / 5).toFixed(0))
+            nDime    = Number((wDime / 2.268).toFixed(0))
+            nQuarter = Number((wQuarter / 5.670).toFixed(0))
         }
 
         function pounds() {
-            nPenny   = (wPenny / 0.0055115565546).toFixed(0)
-            nNickel  = (wNickel / 0.011023113109).toFixed(0)
-            nDime    = (wDime / 0.0050000841064).toFixed(0)
-            nQuarter = (wQuarter / 0.012500210266).toFixed(0)
+            nPenny   = Number((wPenny / 0.0055115565546).toFixed(0))
+            nNickel  = Number((wNickel / 0.011023113109).toFixed(0))
+            nDime    = Number((wDime / 0.0050000841064).toFixed(0))
+            nQuarter = Number((wQuarter / 0.012500210266).toFixed(0))
         }
 
     </script>
