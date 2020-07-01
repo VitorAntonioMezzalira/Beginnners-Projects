@@ -49,11 +49,11 @@
 
     <table>
 
-        <tr class="sTR"><td >Type</td>    <td>Quantity</td><td>Value($)</td></tr>
-        <tr class="sTR"><td>Penny</td>   <td id="nPen"></td><td id="mPen"></td></tr>
-        <tr class="sTR"><td>Nickel</td>  <td id="nNic"></td><td id="mNic"></td></tr>
-        <tr class="sTR"><td>Dime</td>    <td id="nDim"></td><td id="mDim"></td></tr>
-        <tr class="sTR"><td>Quarter</td> <td id="nQua"></td><td id="mQua"></td></tr>
+        <tr class="sTR"><td >Type</td>    <td>Quantity</td><td>Value($)</td><td>Number of Wrapper</td></tr>
+        <tr class="sTR"><td>Penny</td>   <td id="nPen"></td><td id="mPen"></td><td id="wPen"></td></tr>
+        <tr class="sTR"><td>Nickel</td>  <td id="nNic"></td><td id="mNic"></td><td id="wNic"></td></tr>
+        <tr class="sTR"><td>Dime</td>    <td id="nDim"></td><td id="mDim"></td><td id="wDim"></td></tr>
+        <tr class="sTR"><td>Quarter</td> <td id="nQua"></td><td id="mQua"></td><td id="wQua"></td></tr>
 
     </table>
 
@@ -62,6 +62,7 @@
         var nPenny, nNickel, nDime, nQuarter // number of coin
         var wPenny, wNickel, wDime, wQuarter // coin total weight
         var mPenny, mNickel, mDime, mQuarter // value of all coin
+        var nPennyWrapper, nNickelWrapper, nDimeWrapper, nQuarterWrapper
         var weightType
         var money
 
@@ -80,6 +81,8 @@
                 pounds()
             }
 
+            calculeWrappers()
+
             calculeMoney()
 
             document.getElementById("nPen").innerHTML = nPenny
@@ -92,8 +95,19 @@
             document.getElementById("mDim").innerHTML = mDime
             document.getElementById("mQua").innerHTML = mQuarter
 
-            //document.getElementById("demo").innerHTML = nPenny + " Pennies<br>" + nNickel + " Nickels<br>" + nDime + " Dimes<br>" + nQuarter + " Quarters<br><br>R$" + money
+            document.getElementById("wPen").innerHTML = nPennyWrapper
+            document.getElementById("wNic").innerHTML = nNickelWrapper
+            document.getElementById("wDim").innerHTML = nDimeWrapper
+            document.getElementById("wQua").innerHTML = nQuarterWrapper
         }     
+
+        function calculeWrappers() {
+            nPennyWrapper = Math.ceil(nPenny / 50)
+            nNickelWrapper = Math.round(nNickel / 40)
+            nDimeWrapper = Math.round(nDime / 50)
+            nQuarterWrapper = Math.round(nQuarter / 40)
+            Wrapper = nPennyWrapper + nNickelWrapper + nDimeWrapper + nQuarterWrapper
+        }
 
         function calculeMoney() {
             mPenny = nPenny * 0.01
