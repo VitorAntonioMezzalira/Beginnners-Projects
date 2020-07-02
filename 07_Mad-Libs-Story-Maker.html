@@ -4,26 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mad Libs Story Maker</title>
+    <link rel="stylesheet" href="_style/style.css">
+    <script src="_javascript/container.js" ></script>
 </head>
 <body>
     
-    <div id="demo"></div>
+    <div id="demo" class="container"></div>
 
     <script>
-        /*
-        function testAnA(a) {
-            if (((a.slice(0,1)) == "a") || ((a.slice(0,1)) == "e") || ((a.slice(0,1)) == "i") || ((a.slice(0,1)) == "o") || ((a.slice(0,1)) == "u")) {
-                return "an "
-            } else {
-                return "a "
-            }
-        }
-        */
 
         function testAnA(a) {
             return ((( (a.slice(0,1)) == "a") || ((a.slice(0,1)) == "e") || ((a.slice(0,1)) == "i") || ((a.slice(0,1)) == "o") || ((a.slice(0,1)) == "u")) ? "an " : "a ")
 
         }
+
+        function upperFirst(a) {
+            a = a.toLowerCase()
+            let first = a.slice(0,1)   
+            let firstUpper = first.toUpperCase() 
+            let n = a.replace(first, firstUpper);
+            return n
+        }
+
         document.getElementById("demo").innerHTML = testAnA("u")
 
         place01 = window.prompt("A place")
@@ -35,7 +37,7 @@
         place03 = window.prompt("A place")
         verb = window.prompt("A verb")
 
-        document.getElementById("demo").innerHTML = "I went to the " + place01 + " to buy " + testAnA(noun01) + noun01 + " with my friend " + friend + ", but I tripped over " + testAnA(noun01) + noun02 + " on the " + place02 + " and hurt my " + partOfBody + " and ran to the " + place03 + " to " + verb
+        document.getElementById("demo").innerHTML = "I went to the " + place01 + " to buy " + testAnA(noun01) + noun01 + " with my friend " + upperFirst(friend) + ", but I tripped over " + testAnA(noun01) + noun02 + " on the " + place02 + " and hurt my " + partOfBody + " and ran to the " + place03 + " to " + verb
     
     </script>
 

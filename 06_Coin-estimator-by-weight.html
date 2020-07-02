@@ -88,31 +88,15 @@
             
         </table>
 
-<<<<<<< HEAD
-    <table>
-
-        <tr class="sTR"><td >Type</td>    <td>Quantity</td><td>Value($)</td><td>Number of Wrapper</td></tr>
-        <tr class="sTR"><td>Penny</td>   <td id="nPen"></td><td id="mPen"></td><td id="wPen"></td></tr>
-        <tr class="sTR"><td>Nickel</td>  <td id="nNic"></td><td id="mNic"></td><td id="wNic"></td></tr>
-        <tr class="sTR"><td>Dime</td>    <td id="nDim"></td><td id="mDim"></td><td id="wDim"></td></tr>
-        <tr class="sTR"><td>Quarter</td> <td id="nQua"></td><td id="mQua"></td><td id="wQua"></td></tr>
-
-    </table>
-=======
     </div>
->>>>>>> 85bafd2ca04ce30cadd30b2c575a506cb9b77343
 
     <script>
 
         var nPenny, nNickel, nDime, nQuarter // number of coin
         var wPenny, wNickel, wDime, wQuarter // coin total weight
         var mPenny, mNickel, mDime, mQuarter // value of all coin
-<<<<<<< HEAD
-        var nPennyWrapper, nNickelWrapper, nDimeWrapper, nQuarterWrapper
-=======
         var qWrapperPen, qWrapperNic, qWrapperDim, qWrapperQua // number of Wrappers
         var totalCoin, totalMoney, totalWrap
->>>>>>> 85bafd2ca04ce30cadd30b2c575a506cb9b77343
         var weightType
         var money
 
@@ -133,11 +117,7 @@
                 pounds()
             }
 
-<<<<<<< HEAD
-            calculeWrappers()
-=======
             wrappers()
->>>>>>> 85bafd2ca04ce30cadd30b2c575a506cb9b77343
 
             calculeMoney()
 
@@ -162,13 +142,6 @@
             document.getElementById("totalMon").innerHTML = (totalMoney).toFixed(2)
             document.getElementById("totalWrap").innerHTML = totalWrap
 
-<<<<<<< HEAD
-            document.getElementById("wPen").innerHTML = nPennyWrapper
-            document.getElementById("wNic").innerHTML = nNickelWrapper
-            document.getElementById("wDim").innerHTML = nDimeWrapper
-            document.getElementById("wQua").innerHTML = nQuarterWrapper
-        }     
-=======
             //document.getElementById("demo").innerHTML = nPenny + " Pennies<br>" + nNickel + " Nickels<br>" + nDime + " Dimes<br>" + nQuarter + " Quarters<br><br>R$" + money
         }  
 
@@ -178,7 +151,6 @@
             qWrapperDim = Math.ceil(nDime / 50)
             qWrapperQua = Math.ceil(nQuarter / 40)     
         }
->>>>>>> 85bafd2ca04ce30cadd30b2c575a506cb9b77343
 
         function calculeWrappers() {
             nPennyWrapper = Math.ceil(nPenny / 50)

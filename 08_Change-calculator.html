@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="_style/style.css">
+    <script src="_javascript/container.js" ></script>
+</head>
+<body>
+    
+    <div class="container">
+        <input type="number" id="money">
+        <button onclick="calcule()">Calcule</button>
+    </div>
+
+    <div id="demo"></div>
+
+    <script>
+
+        var nQuarter = Math.floor(money/quarter)
+        var rest = money%quarter
+
+        function calcule() {
+            var tester = document.getElementById("money")
+            var money = tester.value
+            var nQuarter = Math.floor(money/quarter)
+
+            var rest = (money%quarter).toFixed(2)
+            document.getElementById("demo").innerHTML = nQuarter + "<br>" + rest
+        }
+
+        var penny = 0.01
+        var nickel = 0.05
+        var dime = 0.10
+        var quarter = 0.25
+
+    </script>
+
+</body>
+</html>

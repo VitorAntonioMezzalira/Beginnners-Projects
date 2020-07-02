@@ -9,10 +9,41 @@
 </head>
 <body>
     
-    <div class="container">
-        <h1>Lorem Ipsum</h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis doloremque fugit, molestias iure ipsa aperiam commodi laboriosam quibusdam culpa dolorem voluptate, cupiditate minus distinctio exercitationem quidem nemo odio. Odio, minima!</p>
-    </div>
+    <div id="demo01"></div>
+    <div id="demo02"></div>
+    <div id="demo03"></div>
+
+    <script>
+
+        function upper(a) {
+            return a.toUpperCase()
+        }
+
+        function lower(a) {
+            return a.toLowerCase()
+        }
+
+        document.getElementById("demo01").innerHTML = upper("vIToR")
+        document.getElementById("demo02").innerHTML = lower("vIToR")
+        document.getElementById("demo03").innerHTML = upperFirst("vIToR")
+
+        function upperFirst(a) {
+            a = a.toLowerCase()
+            let first = a.slice(0,1)
+            
+            let firstUpper = first.toUpperCase()
+            
+            let n = a.replace(first, firstUpper);
+            return n
+        }
+
+        
+
+
+
+       
+
+    </script>
 
 </body>
 </html>
