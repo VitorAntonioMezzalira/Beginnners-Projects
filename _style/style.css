@@ -7,11 +7,14 @@
 }
 
 .container h1 {
-    border-bottom: 1px solid #777777;
     margin: 5px;
 }
 
 .container p {
     text-indent: 30px;
     color: #222222;
+}
+
+.right {
+    text-align: right;
 }
