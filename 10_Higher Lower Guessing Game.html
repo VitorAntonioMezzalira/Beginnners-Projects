@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Higher Lower Guessing Game</title>
+    <link rel="stylesheet" href="_style/style.css">
+    <script src="_javascript/container.js" ></script>
+</head>
+<body>
+    
+    <div class="container">
+        
+        <div>
+            <h1>Higher Lower</h1>
+            <p>Input the value and follow the tips until you </p>
+            <input type="number" id="attempt">
+            <button onclick="tempt()">Click</button>
+            <button onclick="reset()">Reset</button>
+        </div>
+
+    </div>
+
+    <div id="demo">
+        <p id="attempts"></p>
+        <p id="tip"></p>
+    </div>
+    
+    <script>
+
+            var ran = ""
+            var attempt = 0
+
+        function reset() {
+            ran = ""
+            attempt = 0
+
+            document.getElementById("attempts").innerHTML = attempt
+            document.getElementById("tip").innerHTML = "";
+        }
+
+        function tempt() {
+
+            attempt += 1
+
+            var tempt = document.getElementById("attempt")
+            var regress = tempt.value
+            if (ran == "") {
+                ran = Math.floor(Math.random() * 100) + 1
+            }
+
+            if (regress > ran) {
+                document.getElementById("tip").innerHTML = "higher";
+            } else if (regress < ran){
+                document.getElementById("tip").innerHTML = "lower";
+            } else {
+                document.getElementById("tip").innerHTML = "Congratulation!!!";
+            }
+
+            document.getElementById("attempts").innerHTML = attempt
+
+        }
+
+    </script>
+
+</body>
+</html>
