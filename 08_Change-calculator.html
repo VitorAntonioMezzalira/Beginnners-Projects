@@ -35,8 +35,17 @@
 
         div#interface p {
             text-indent: 0px;
-            margin: 0px;
+            margin: 2px 0px;
             padding: 2px;
+        }
+
+        p input {
+            left: 60px;
+            position: absolute;
+        }
+
+        button {
+            margin-top: 10px;
         }
 
     </style>
@@ -48,11 +57,12 @@
 
             <h1 style="margin: 10px 0px; padding-bottom: 10px; border-bottom: 1px solid #bbbbbb">Change Calculator</h1>
 
-            <div style="margin-bottom: 10px; padding-bottom: 10px; border-bottom: 1px solid #bbbbbb;">
+            <div style="position: relative;padding-bottom: 10px; border-bottom: 1px solid #bbbbbb;">
                 <p><label for="price">Price:</label><input type="number" id="price"></p>
                 <p><label for="money">Money:</label><input type="number" id="money"></p>
+                <p><label for="">Change: </label><input type="number" id="change"></p>
                 <button onclick="calcule()">Calcule</button>
-                <button onclick="document.getElementById('money').value = ''">Clear</button>
+                <button onclick="document.getElementById('money').value = '';document.getElementById('price').value = '';document.getElementById('change').value = ''">Clear</button>
             </div>
 
             <table><caption><h3 style="margin: 0px; padding:0px;">Change</h3></caption>
@@ -69,13 +79,23 @@
     <script>
 
         function calcule() {
-            var tester = document.getElementById("money")
-            var money = tester.value
-            
-            var qQuarter = Math.floor(money/quarter)
-            var rest = (money%quarter).toFixed(2)
-            var vQuarter = (qQuarter*quarter).toFixed(2)
 
+            var a = document.getElementById("price")
+            var b = document.getElementById("money")
+            var c = document.getElementById("change")
+
+            var price = a.value
+            var money = b.value
+            var change = money - price
+
+            if ((price > 0) && (money > 0) ) {
+                c.value = (change).toFixed(2)
+            }
+            change = c.value
+            
+            var qQuarter = Math.floor(change/quarter)
+            var rest = (change%quarter).toFixed(2)
+            var vQuarter = (qQuarter*quarter).toFixed(2)
 
             var qDime = Math.floor(rest/dime)
             rest = (rest%dime).toFixed(2)
@@ -87,9 +107,6 @@
 
             var qPenny = Math.floor(rest/penny)
             var vPenny = (qPenny*penny).toFixed(2)
-
-
-            //document.getElementById("demo").innerHTML = qQuarter + "<br>" + qDime + "<br>" + qNickel + "<br>" + qPenny
 
             document.getElementById("qQuarter").innerHTML = qQuarter
             document.getElementById("qDime").innerHTML = qDime

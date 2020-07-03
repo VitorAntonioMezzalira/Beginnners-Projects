@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mean, Media, and Mode</title>
+</head>
+<body>
+    
+    <input type="text" onkeypress="limpa(event)" id="demo" >
+
+    <button onclick="myFunction()">Click</button>
+    
+    <div id="demo01"></div>
+
+    <div id="demo02"></div>
+    
+    <script>
+
+        function limpa() {
+            var x = event.keyCode
+            document.getElementById("demo01").innerHTML = x
+            if (x == "13") {
+                document.getElementById("demo").value = "";
+            }
+        }
+
+        function myFunction() {
+            document.getElementById("demo").value = "";
+        }
+
+    </script>
+
+</body>
+</html>
