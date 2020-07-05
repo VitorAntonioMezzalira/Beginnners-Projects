@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <button onclick="result()">result</button>
+    <button onclick="order()">order</button>
+    <div id="demo"></div>
+
+
+    <script>
+
+        var demo = document.getElementById("demo")
+        var num = [8, 5, 2, 9, 1 , 3]
+
+        function order() {
+            var i = 0
+            var j = 0
+            for(i = 0; i < num.length; i++) {
+                var lower = num[i]
+                var lowerPosition = i
+                var aux
+                for(j = (i+1); j < num.length; j++) {
+                    if(lower > num[j]) {
+                        lower = num[j]
+                        lowerPosition = j
+                    }
+                }
+                    aux = num[i]
+                    num[i] = num[lowerPosition]
+                    num[lowerPosition] = aux
+            }
+        }
+
+        function result() {
+            var text = ""
+                for(j = 0; j < num.length; j++) {
+                    text += num[j]
+                }
+            demo.innerHTML = text
+        }
+
+    </script>
+
+</body>
+</html>

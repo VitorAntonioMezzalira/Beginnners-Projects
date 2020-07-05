@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>09.2 Test</title>
+</head>
+<body>
+    
+    <div id="demo"></div>
+
+    <input type="text" id="input" onkeypress="test(event)">
+
+    <button onclick="show()">show</button>
+    <button onclick="limpa()">clear</button>
+    <button onclick="order()">order</button>
+
+    <script>
+        
+        var num = []
+        var i = 0
+        var input = document.getElementById("input")
+        var demo = document.getElementById("demo")
+
+        // test if key press is enter(13)
+        function test(event) {
+            var x = event.keyCode
+
+            if ((x == "13") && (input.value != "")) {
+                num[i] = Number(input.value)
+                input.value = ""
+                demo.innerHTML = num[i]
+                i += 1
+            }
+        }
+
+        // clear the list
+        function limpa() {
+            num = []
+            i = 0
+        }
+
+        // show a list of items
+        function show() {
+            var leng = num.length
+
+            var text = "<ul>"
+            for(i = 0 ; i < leng ; i++ ) {
+                text += "<li>" + num[i] + "</li>"
+            }
+            text += "</ul>"
+
+            demo.innerHTML = text
+        }
+    
+        // order script
+        function order() {
+            var i = 0
+            var j = 0
+            for(i = 0; i < num.length; i++) {
+                var lower = num[i]
+                var lowerPosition = i
+                var aux
+                for(j = (i+1); j < num.length; j++) {
+                    if(lower > num[j]) {
+                        lower = num[j]
+                        lowerPosition = j
+                    }
+                }
+                    aux = num[i]
+                    num[i] = num[lowerPosition]
+                    num[lowerPosition] = aux
+            }
+        }
+
+        limpa()
+
+    </script>
+
+</body>
+</html>
