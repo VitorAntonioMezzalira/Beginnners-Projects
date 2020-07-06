@@ -6,30 +6,45 @@
     <title>Higher Lower Guessing Game</title>
     <link rel="stylesheet" href="_style/style.css">
     <script src="_javascript/container.js" ></script>
+    <style>
+
+        div#demo p {
+            padding: 5px;
+            margin: 2px;
+        }
+
+    </style>
 </head>
 <body>
     
     <div class="container">
         
-        <div>
+        <div style="padding-bottom:15px;display:inline-block;">
             <h1>Higher Lower</h1>
-            <p>Input the value and follow the tips until you </p>
+            <p>Input the value and follow the instruction.</p>
             <input type="number" id="attempt">
             <button onclick="tempt()">Click</button>
             <button onclick="reset()">Reset</button>
         </div>
 
-    </div>
+        <div id="demo" style="display:inline-block; text-align: center">
+            <div style="display:inline-block; border: 1px solid #333333;">
+                <p style="background-color: #bbbbbb">Tips</p>
+                <p style="background-color: #bbbbbb" id="tip">?</p>
+            </div>
+            <div style="display:inline-block; border: 1px solid #333333;">
+                <p style="background-color: #bbbbbb">attempts</p>
+                <p style="background-color: #bbbbbb" id="attempt">0</p>
+            </div>
+        </div>
 
-    <div id="demo">
-        <p id="attempts"></p>
-        <p id="tip"></p>
     </div>
-    
     <script>
 
-            var ran = ""
-            var attempt = 0
+        var ran = ""
+        var attempt = 0
+
+        var tip = document.getElementById("tip");
 
         function reset() {
             ran = ""
@@ -54,11 +69,9 @@
             } else if (regress < ran){
                 document.getElementById("tip").innerHTML = "lower";
             } else {
-                document.getElementById("tip").innerHTML = "Congratulation!!!";
+                document.getElementById("tip").innerHTML     = "Congratulation!!!";
             }
-
             document.getElementById("attempts").innerHTML = attempt
-
         }
 
     </script>

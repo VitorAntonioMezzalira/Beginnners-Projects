@@ -4,19 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mean Media, and Mode</title>
+    <style>
+
+        button {
+            width: 78.5px;
+        }
+
+    </style>
 </head>
 <body>
     
     <div>
 
         <input type="number" id="input" onkeypress="send(event)">
-        <button onclick="show()">SHOW</button>
-        <button onclick="order()">ORDER</button>
-        <button onclick="clean()">CLEAR</button>
-        <button onclick="findMean()">MEAN</button>
-        <button onclick="findMedian()">MEDIAN</button>
-        <button onclick="findMode2()">MODE</button>
-        <button onclick="findMode()">MODE 2</button>
+
+        <table>
+            <tr>
+                <td><button onclick="show()">SHOW</button></td>
+                <td><button onclick="order()">ORDER</button></td>
+                <td><button onclick="findMean()">MEAN</button></td>
+                <td><button onclick="findMedian()">MEDIAN</button></td>
+            </tr>
+            <tr>
+                <td><button onclick="clean()">CLEAR</button></td>
+                <td><button onclick="findMode3()">MODE</button></td>
+                <td><button onclick="findMode2()">MODE 2</button></td>
+                <td><button onclick="findMode1()">MODE 3</button></td>
+            </tr>
+        </table>
 
     </div>
 
@@ -29,7 +44,6 @@
     var j = 0
     var demo = document.getElementById("demo")
     var input = document.getElementById("input")
-
 
     // add item when event == 13(enter)
     function send(event) {
@@ -77,8 +91,12 @@
                     num[lowerPosition] = aux
             }
         }
+
     // find and show mean
     function findMean() {
+
+        order()
+
         var mean
         var tot = 0
         for(j = 0; j < num.length; j++) {
@@ -91,6 +109,9 @@
 
     // find median
     function findMedian() {
+
+        order()
+
         if ((num.length%2) == 1 ) {
             // find in a odd array
             var medianLocation = Math.floor((num.length)/2)
@@ -103,8 +124,11 @@
         }
     }
 
-    // find mode
-    function findMode() {
+    // find mode method 1.0
+    function findMode1() {
+
+        order()
+
         var j = 0
         var k = 0
         var mode = []
@@ -118,28 +142,72 @@
                 j++
             }
         }
-
         demo.innerHTML = mode
     }
 
+    // find mode method 2.0
     function findMode2() {
+
+        order()
+
         var repet = 1;
         var greatRepet = 1;
         var greatModa = num[0];
         var moda = num[0];
-        for(i = 1; i < num.length; i++) {
-            
-            if (num[i-1] !== num[i]) {
-                if (repet > greatRepet) {
+        for(i = 1; i < num.length; i++) {    
+            if(num[i-1] !== num[i]) {
+                if(repet > greatRepet) {
                     greatRepet = repet
                     greatModa = moda
-                } 
+                }
                 repet = 0
                 moda = num[i]
             }
             repet++
         }
         demo.innerHTML = greatModa
+    }
+
+    // find modes method 3.0
+    function findMode3() {
+
+        var maxRepet = maxRep()
+
+        var mode = []
+        var repet = 1
+        var j = 0
+
+        for(i = 0; i < num.length; i++) {
+            if(num[i-1] !== num[i]) {
+                if(repet == maxRepet) {
+                    mode[j] = num[i-1]
+                    j++
+                }
+                repet = 0
+            }
+            repet++
+        }
+        demo.innerHTML = mode
+    }
+    
+    // test max sequence of repet
+    function maxRep() {
+
+        order()
+
+        var repet = 1;
+        var greatRepet = 1;
+
+        for(i = 1; i < num.length; i++) {
+            if (num[i-1] !== num[i]) {
+                if(repet > greatRepet) {
+                    greatRepet = repet
+                }
+                repet = 0
+            }
+            repet++
+        }
+        return greatRepet
     }
 
 </script>
