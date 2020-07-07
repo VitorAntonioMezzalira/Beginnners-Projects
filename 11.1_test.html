@@ -6,6 +6,62 @@
     <title>Document</title>
 </head>
 <body>
+
+    <label for="yIni">Inicio Multiplicando:</label><input type="number" id="yIni">
+    <label for="yIni">Inicio Multiplicador:</label><input type="number" id="xIni">
+    <br>
+    <label for="yIni">Final Multiplicando:</label><input type="number" id="yFin">
+    <label for="yIni">Final Multiplicador:</label><input type="number" id="xFin">
+
+    <button onclick="generate()"></button>
+
+    <table id="demo">
+
+    </table>
+
+    <script>
+
+        var demo = document.getElementById("demo")
+
+        var multiplicadorIni = document.getElementById("yIni")
+        var multiplicandoIni = document.getElementById("xIni")
+
+        var multiplicadorFin = document.getElementById("yFin")
+        var multiplicandoFin = document.getElementById("xFin")
+        
+        var yIni = 0
+        var yFin  = 10
+        
+        var xIni = 0
+        var xFin  = 10
+
+        var i = 0
+        var j = 0
+
+        function generate() {
+
+            var text = ""
+
+            yIni = Number(multiplicandoIni.value)
+            xIni = Number(multiplicadorIni.value)
+
+            yFin = Number(multiplicandoFin.value)
+            xFin = Number(multiplicadorFin.value)
+
+            for(i = xIni; i <= xFin; i++) {
+                text += "<tr>"
+
+                for(j = yIni; j <= yFin; j++) {
+                    text += "<td>" + i + "X" + j + "=" + (i*j) + "</td>"
+                }
     
+                text += "</tr>"
+            }
+            
+            demo.innerHTML = text
+        }
+        
+    </script>
+
 </body>
 </html>
