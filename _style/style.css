@@ -17,3 +17,11 @@
 .right {
     text-align: right;
 }
+
+.no-border-after {
+    outline: 0px transparent;
+}
+
+.no-border {
+    border: none;
+}
