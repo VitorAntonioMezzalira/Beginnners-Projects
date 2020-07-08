@@ -4,9 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>99 Bottles</title>
+    <script src="_javascript/container.js"></script>
+    <link rel="stylesheet" href="_style/style.css">
+    <style>
+
+
+    </style>
 </head>
 <body>
-    <div id="demo" style="font-family: arial"></div>
+    <div class="container" >  
+        <div style="width:500px; margin:auto; position: relative;">  
+            <h1 id="tittle" style="text-align: center; border-bottom: 1px solid #666666; margin:20px 0px;"></h1>
+            <div id="demo" style="font-family: arial"></div>
+        </div>
+        <div style="width:500px; margin:auto; position: relative; text-align:center;">
+            <button><a href="01_99 bottles.html">Try again</a></button>
+        </div>
+    </div>
     <script>
 
         function bottle(a)
@@ -37,6 +51,8 @@
             return wall
         }
         var b = window.prompt("How many bottles of beer you have?")
+
+        document.getElementById("tittle").innerHTML = bottle(b) + " of beer"
         document.getElementById("demo").innerHTML = beer(b)
     </script>
 </body>

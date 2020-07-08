@@ -4,11 +4,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Armstrong Number</title>
+    <script src="_javascript/container.js"></script>
+    <link rel="stylesheet" href="_style/style.css">
+    <style>
+
+        div {
+            font-family: arial;
+            font-size: 35pt;
+            text-align: center;
+        }
+
+        button {
+            border-radius: 7px;
+            border: none;
+            padding: 5px;
+            outline: 0px transparent;
+            background-color: #97a1c2;
+            margin-bottom: 20px;
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
+            font-size: 15pt;
+        }
+
+        button:hover {
+            background-color: #374f9e;
+        }
+
+        button:hover a{
+            color: #ffffff;
+        }
+
+    </style>
 </head>
 <body>
+    <div class="container">
+        <div id="demo"></div>
+        <button><a href="02_Armstrong Number.html">Try again</a></button>
+    </div>
     
-    <div id="demo" style="font-size:30pt; font-family:arial; color:#444444"></div>
-
     <script>
 
         var num = window.prompt("Tell me a Armstrong Number for the test")

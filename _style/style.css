@@ -1,5 +1,6 @@
 @charset "utf-8";
 
+/* containers */
 .container {
     background-color: #eeeeee;
     padding: 5px 15px 5px 15px;
@@ -14,6 +15,38 @@
     color: #222222;
 }
 
+
+/* align right */
 .right {
     text-align: right;
+}
+
+/* buttons */
+button {
+    border-radius: 7px;
+    border: none;
+    padding: 5px;
+    outline: 0px transparent;
+    background-color: #97a1c2;
+    margin-bottom: 20px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+    font-size: 15pt;
+}
+
+button:hover {
+    background-color: #374f9e;
+}
+
+button:hover a{
+    color: #ffffff;
+}
+
+/* input */
+
+input {
+    outline: 0px transparent;
 }
