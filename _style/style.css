@@ -50,3 +50,10 @@ button:hover a{
 input {
     outline: 0px transparent;
 }
+.no-border-after {
+    outline: 0px transparent;
+}
+
+.no-border {
+    border: none;
+}
