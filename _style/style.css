@@ -28,13 +28,11 @@ button {
     padding: 5px;
     outline: 0px transparent;
     background-color: #97a1c2;
-    margin-bottom: 20px;
 }
 
 a {
     text-decoration: none;
     color: black;
-    font-size: 15pt;
 }
 
 button:hover {

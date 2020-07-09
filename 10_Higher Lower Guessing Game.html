@@ -34,7 +34,7 @@
             </div>
             <div style="display:inline-block; border: 1px solid #333333;">
                 <p style="background-color: #bbbbbb">attempts</p>
-                <p style="background-color: #bbbbbb" id="attempt">0</p>
+                <p style="background-color: #bbbbbb" id="attempts">0</p>
             </div>
         </div>
 
@@ -51,7 +51,7 @@
             attempt = 0
 
             document.getElementById("attempts").innerHTML = attempt
-            document.getElementById("tip").innerHTML = "";
+            document.getElementById("tip").innerHTML = "?";
         }
 
         function tempt() {
@@ -69,7 +69,7 @@
             } else if (regress < ran){
                 document.getElementById("tip").innerHTML = "lower";
             } else {
-                document.getElementById("tip").innerHTML     = "Congratulation!!!";
+                document.getElementById("tip").innerHTML = "Congratulation!!!";
             }
             document.getElementById("attempts").innerHTML = attempt
         }

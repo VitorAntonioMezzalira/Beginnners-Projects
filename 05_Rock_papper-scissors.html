@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="_javascript/container.js"></script>
+    <link rel="stylesheet" href="_style/style.css">
     <style>
         body {
             font-family: courier;
@@ -15,19 +17,13 @@
         }
 
         .game {
-            text-align: center;
             padding: 20px;
-            margin: 10px;
-            background-color: #eeeeee;
             width: 150px;
             height: 75px;
         }
 
         .options {
-            text-align: center;
-            margin: 10px;
             padding: 10px;
-            background-color: #eeeeee;
             width: 85px;
             height: 95px;
         }
@@ -38,32 +34,57 @@
             margin: 5px auto;
             width: 75px;
             height: 25px;
+            font-size: 10pt;
+        }
+
+        .itens-interface {
+            text-align: center;
+            background-color: #ffffff;
+            margin: 10px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,.2)
         }
     </style>
 </head>
-<body>
+<body id="corpo">
 
-    <div style="display:flex;">
-        <div class="options">
-            <button class="option" onclick="getRock()">Rock</button>
-            <button class="option" onclick="getPapper()">Papper</button>
-            <button class="option" onclick="getScissor()">Scissor</button>
+    <div class="container" style="text-align:center; padding-top: 20px; ">
+        <h1 class="words">Rock papper scissors</h1>
+        <div style="display:flex; margin: auto; width: 860px;">
+            <div class="itens-interface options">
+                <button class="option" onclick="getRock()">Rock</button>
+                <button class="option" onclick="getPapper()">Papper</button>
+                <button class="option" onclick="getScissor()">Scissor</button>
+            </div>
+            <div class="demo itens-interface game">
+                <h1 class="words">User</h1>
+                <p class="words" id="user"></p>
+                <p class="words" id="puser"></p>
+            </div>
+            <div class="words itens-interface game" id="result"></div>
+            <div class="itens-interface game">
+                <h1 class="words" >Computer</h1>
+                <p class="words" id="pc"></p>
+                <p class="words" id="ppc"></p>
+            </div>
+            <div class="itens-interface options">
+                <button class="option" onclick="styleOne()">Style 1</button>
+                <button class="option" onclick="styleTwo()">Style 2</button>
+                <button class="option">soon</button>
+            </div>
         </div>
-        <div class="game">
-            <h1>User</h1>
-            <p id="user"></p>
-            <p id="puser"></p>
-        </div>
-        <div class="game" id="result"></div>
-        <div class="game">
-            <h1>Computer</h1>
-            <p id="pc"></p>
-            <p id="ppc"></p>
-        </div>
+        <button class="option"><a href="05_Rock_papper-scissors.html">Reset</a></button>
     </div>
+
+    <div id="demo"></div>
 
     <script>
 
+        var interfaceGame = document.getElementsByClassName("itens-interface")
+        var corpo = document.getElementById("corpo")
+        var container = document.getElementsByClassName("container")
+        var option = document.getElementsByClassName("option")
+        var words = document.getElementsByClassName("words")
+        var color = []
         var choice
 
         function getRock() {
@@ -91,6 +112,36 @@
                     return "papper";
                 case 3:
                     return "scissor";
+            }
+        }
+       
+        function styleOne() {
+
+            color = ["#ffffff", "#eeeeee", "#97a1c2", "#333333"]
+            defineStyle(color)
+        }      
+
+        function styleTwo() {
+
+            color = ["#4f4f4f", "#1f1f1f", "#589c3c", "#dadada"]
+            defineStyle(color)
+        }
+
+        function defineStyle(color) {
+            
+            corpo.style.backgroundColor = color[0] // corpo
+            container[0].style.backgroundColor = color[1] // interface
+            
+            var i
+
+            for(i = 0; i < interfaceGame.length; i++) {
+                interfaceGame[i].style.backgroundColor = color[0] // objetos da interface
+            }
+            for(i = 0; i < option.length; i++) {
+                option[i].style.backgroundColor = color[2] // botões
+            }
+            for(i = 0; i < words.length; i++) {
+                words[i].style.color = color[3] // letras
             }
         }
 
@@ -136,7 +187,6 @@
             } else if ((userChoice == "scissor") && (computerChoice == "scissor")) {
                 noWinners()
             }
-
             document.getElementById("user").innerHTML = userChoice
             document.getElementById("puser").innerHTML = userPoints
             document.getElementById("pc").innerHTML = computerChoice
