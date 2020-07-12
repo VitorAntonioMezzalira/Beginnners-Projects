@@ -1,3 +1,5 @@
+//window.addEventListener("resize", function(){
+
 setInterval(setContainer, 10)
         
 var containerFluid = document.querySelector(".container-fluid")
